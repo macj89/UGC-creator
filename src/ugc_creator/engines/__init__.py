@@ -1,0 +1,1 @@
+"""Generative engine adapters."""

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UGC Studio</title>
+  <link rel="stylesheet" href="/assets/studio.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="mark">U</span><div><b>UGC Studio</b><small>Visual Production Graph</small></div></div>
+    <div class="project-title"><span class="status-dot"></span><input id="workflowName" value="Reforma · Transformación cinematográfica"></div>
+    <div class="top-actions"><button id="saveBtn" class="ghost">Guardar</button><button id="runBtn" class="run">▶ Ejecutar workflow</button></div>
+  </header>
+  <main class="app-shell">
+    <aside class="library panel">
+      <div class="panel-heading"><span>WORKFLOWS</span><button class="icon">＋</button></div>
+      <div id="presetList" class="preset-list"></div>
+      <div class="panel-heading node-title"><span>NODOS</span></div>
+      <div id="nodeLibrary" class="node-library"></div>
+      <div class="engine-state"><span class="status-dot"></span><div><b id="engineTitle">Comprobando motores…</b><small id="engineDetail">ComfyUI, OpenRouter y ElevenLabs</small></div><button>Configurar</button></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-toolbar">
+        <div class="crumb"><b>Production Graph</b><span>/</span><span id="presetDescription">Antes/después cinematográfico</span><span>· Arrastra el fondo para navegar</span></div>
+        <div class="canvas-tools"><button data-zoom="out">−</button><span id="zoomLabel">85%</span><button data-zoom="in">＋</button><button id="fitBtn">⌗</button></div>
+      </div>
+      <div id="canvas" class="canvas">
+        <div id="canvasWorld" class="canvas-world">
+          <svg id="connections" class="connections"></svg>
+          <div id="nodes"></div>
+        </div>
+        <div class="minimap"><div id="miniNodes"></div><span>GRAPH MAP</span></div>
+      </div>
+      <div class="queue-bar">
+        <div><span class="queue-icon">≋</span><b>Render queue</b><span id="queueState">Sin trabajos</span></div>
+        <div class="system-pills"><span>FFmpeg <i class="ok"></i></span><span>RTX 4070 <i class="ok"></i></span><span>Gen engine <i class="off"></i></span></div>
+      </div>
+    </section>
+
+    <aside class="inspector panel">
+      <div class="preview-wrap">
+        <div class="preview-head"><span>MONITOR · 9:16</span><span class="timecode">00:00:00:00</span></div>
+        <div class="preview" id="preview"><video id="previewVideo" controls loop playsinline style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3"></video><div class="preview-vignette"></div><div class="preview-copy"><small>SHOT PREVIEW</small><strong id="previewTitle">Selecciona un nodo</strong><span id="previewSub">Los motores generativos se conectan aquí</span></div><button class="play">▶</button></div>
+        <div class="transport"><button>◀◀</button><button>◀</button><button class="main-play">▶</button><button>▶</button><button>▶▶</button></div>
+      </div>
+      <div class="inspector-head"><div><span>INSPECTOR</span><h2 id="inspectorTitle">Workflow</h2></div><span id="nodeBadge" class="badge">GRAPH</span></div>
+      <div id="controls" class="controls"><p class="empty">Selecciona un nodo para dirigir sus parámetros.</p></div>
+    </aside>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="/assets/studio.js"></script>
+</body>
+</html>

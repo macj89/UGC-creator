@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ugc-creator"
+version = "0.1.0"
+description = "Pipeline local-first para anuncios UGC verticales reproducibles"
+requires-python = ">=3.12,<3.14"
+dependencies = ["PyYAML>=6.0,<7", "fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+ugc-creator = "ugc_creator.cli:main"
+ugc-studio = "ugc_creator.studio:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

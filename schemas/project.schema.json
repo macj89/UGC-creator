@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ugc-creator.local/schemas/project.schema.json",
+  "title": "UGC Creator project",
+  "type": "object",
+  "required": ["schema_version", "id", "brief", "brand", "assets"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "brief": {"type": "object", "required": ["audience", "offer", "zone", "cta"]},
+    "brand": {"type": "object", "required": ["name"]},
+    "assets": {"type": "array", "minItems": 8, "maxItems": 20}
+  }
+}
+
